@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use std::fmt::{Debug, Display, Formatter};
 
-use async_openai::Client;
-use async_openai::error::OpenAIError;
-use async_openai::types::{ChatCompletionFunctionCall, ChatCompletionFunctions, ChatCompletionMessageToolCall, ChatCompletionRequestMessage, ChatCompletionResponseStream, ChatCompletionStreamResponseDelta, ChatCompletionToolType, CreateChatCompletionRequest, CreateChatCompletionResponse, FunctionCall, Stop};
+use async_openai_wasm::Client;
+use async_openai_wasm::error::OpenAIError;
+use async_openai_wasm::types::{ChatCompletionFunctionCall, ChatCompletionFunctions, ChatCompletionMessageToolCall, ChatCompletionRequestMessage, ChatCompletionResponseStream, ChatCompletionStreamResponseDelta, ChatCompletionToolType, CreateChatCompletionRequest, CreateChatCompletionResponse, FunctionCall, Stop};
 use serde::{Deserialize, Serialize};
 use crate::utils::helper_traits::{ThenDo, ThenDoMut};
 use crate::utils::JsonMap;
@@ -340,9 +340,9 @@ mod test {
     use std::io::{stdout, Write};
 
     use anyhow::Result;
-    use async_openai::Client;
-    use async_openai::config::AzureConfig;
-    use async_openai::types::{ChatCompletionFunctionsArgs, ChatCompletionRequestAssistantMessageArgs, ChatCompletionRequestMessage, ChatCompletionRequestUserMessageArgs, CreateChatCompletionRequestArgs, FinishReason};
+    use async_openai_wasm::Client;
+    use async_openai_wasm::config::AzureConfig;
+    use async_openai_wasm::types::{ChatCompletionFunctionsArgs, ChatCompletionRequestAssistantMessageArgs, ChatCompletionRequestMessage, ChatCompletionRequestUserMessageArgs, CreateChatCompletionRequestArgs, FinishReason};
     use futures::StreamExt;
     use serde_json::json;
 

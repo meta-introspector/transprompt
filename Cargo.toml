@@ -36,10 +36,12 @@ qdrant-client = { version = "~1.7", optional = true }
 # Token related
 tiktoken-rs = "0.5"
 
-[dependencies.async-openai]
+[dependencies.async-openai-wasm]
 # for LLM
-version = "0.18"
-git = "https://github.com/ifsheldon/async-openai.git"
+#version = "0.18"
+version = "0.21.0-experimental"
+#git = "https://github.com/ifsheldon/async-openai.git"
+git = "https://github.com/ifsheldon/async-openai-wasm.git"
 branch = "frontier"
 default-features = false
 
@@ -50,7 +52,7 @@ futures = "0.3"
 ctrlc = "3.4"
 
 [features]
-default = ["terminal_printing", "async-openai/default", "qdrant"]
+default = ["terminal_printing", "async-openai-wasm/default", "qdrant"]
 terminal_printing = ["termimad"]
-wasm = ["async-openai/wasm"]
+#wasm = ["async-openai-wasm/wasm"]
 qdrant = ["qdrant-client"]

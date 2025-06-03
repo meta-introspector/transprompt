@@ -1,7 +1,7 @@
 use anyhow::Result;
-use async_openai::Client;
-use async_openai::types::{CreateEmbeddingRequest, EmbeddingUsage};
-use async_openai::types::EmbeddingInput;
+use async_openai_wasm::Client;
+use async_openai_wasm::types::{CreateEmbeddingRequest, EmbeddingUsage};
+use async_openai_wasm::types::EmbeddingInput;
 use async_trait::async_trait;
 
 /// Vector of floats representing an embedding.
@@ -89,6 +89,7 @@ impl OpenAIEmbedding {
     /// send a request to the OpenAI API to embed a string. Returns the embedding vector and embedding usage, or an error.
     async fn request_embed(&self, string: impl Into<String>) -> Result<(Vec<f32>, EmbeddingUsage)> {
         let request = CreateEmbeddingRequest {
+	    dimensions: None,
             model: self.embedding_model.clone(),
             input: EmbeddingInput::String(string.into()),
             encoding_format: None,
